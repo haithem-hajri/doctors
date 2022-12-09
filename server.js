@@ -6,6 +6,7 @@ const contactUs = require("./routes/contact");
 const auth = require("./routes/auth");
 const doctor = require("./routes/doctor");
 const config = require("dotenv").config();
+const path = require("path");
 const app = express();
 const PORT = 5000;
 /* -------------------------------------------------------------------------- */
@@ -37,5 +38,17 @@ app.use("/api", doctor);
 /* -------------------------------------------------------------------------- */
 /*                               CONNECT SERVER                               */
 /* -------------------------------------------------------------------------- */
+app.use(express.static(path.join(__dirname, "./doctor/build")));
+app.get("*", function (_, res) {
+  res.sendFile(
+    path.join(__dirname, "./doctor/build/index.html"),
+    function (err) {
+      if (err) {
+        res.status(500).send(err);
+      }
+    }
+  );
+});
+
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
