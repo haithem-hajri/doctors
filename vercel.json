@@ -2,11 +2,12 @@
 
 {
   "version": 2,
-  "name": "music-album",
+  "name": "doctors",
   "builds": [
      { "src": "server.js", "use": "@vercel/node" }
   ],
   "routes": [
      { "src": "/(.*)", "dest": "/server.js" }
-  ]
+  ],
+  "rewrites": [{ "source": "/(.*)", "destination": "/api" }]
 }
