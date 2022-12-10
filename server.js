@@ -62,5 +62,9 @@ if (process.env.NODE_ENV === 'production') {
 //     res.sendFile(path.resolve(__dirname, "./client", "build", "index.html"));
 //   });
 // }
+// "routes": [
+//   { "src": "/(.*)", "dest": "/server.js" }
+// ],
+// //"name": "doctors",
 // "rewrites": [{ "source": "/(.*)", "destination": "/api" }]
 app.listen(port, () => console.log(`Server running on port ${port}`));
