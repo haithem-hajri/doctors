@@ -17,8 +17,22 @@ exports.addContact = (req, res) => {
     });
 };
 
+// exports.getContacts = (req, res) => {
+//   Contact.find()
+//     .then((contacts) => res.status(200).json(contacts))
+//     .catch((err) => res.status(401).json(err));
+// };
+
+// get all contacts   
 exports.getContacts = (req, res) => {
-  Contact.find()
-    .then((contacts) => res.status(200).json(contacts))
-    .catch((err) => res.status(401).json(err));
+Contact.find()
+  .then((contacts) => res.status(200).json(contacts))
+  .catch((err) => res.status(401).json(err));
 };
+
+
+
+
+
+
+
