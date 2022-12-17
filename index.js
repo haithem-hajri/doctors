@@ -38,12 +38,12 @@ app.use("/api", doctor);
 /* -------------------------------------------------------------------------- */
 /*                               CONNECT SERVER                               */
 /* -------------------------------------------------------------------------- */
-// if (process.env.NODE_ENV === 'production') {
-//   //*Set static folder up in production
-//   app.use(express.static('client/build'));
+if (process.env.NODE_ENV === 'production') {
+  //*Set static folder up in production
+  app.use(express.static('client/build'));
 
-//   app.get('*', (req,res) => res.sendFile(path.resolve(__dirname, 'client', 'build','index.html')));
-// }
+  app.get('*', (req,res) => res.sendFile(path.resolve(__dirname, 'client', 'build','index.html')));
+}
 
 app.listen(port, () => console.log(`Server running on port ${port}`));
 module.exports = app
